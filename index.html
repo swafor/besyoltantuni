@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -65,6 +64,7 @@
         nav {
             display: flex;
             gap: 24px;
+            flex-wrap: wrap;
         }
 
         nav a {
@@ -209,9 +209,8 @@
             background: white;
             border: 1px solid var(--border);
             border-radius: 16px;
-            padding: 22px;
+            padding: 16px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
             gap: 15px;
             transition: transform .2s, box-shadow .2s;
@@ -222,23 +221,40 @@
             box-shadow: 0 8px 25px rgba(180, 70, 60, .08);
         }
 
+        .item-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
+            object-fit: cover;
+            flex-shrink: 0;
+            border: 1px solid var(--border);
+        }
+
+        .item-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            gap: 10px;
+        }
+
         .item-info h3 {
-            font-size: 17px;
+            font-size: 16px;
             margin-bottom: 4px;
         }
 
         .item-info p {
-            font-size: 13px;
+            font-size: 12px;
             color: var(--muted);
         }
 
         .price {
             color: var(--red);
             background: var(--red-light);
-            padding: 9px 13px;
-            border-radius: 12px;
+            padding: 8px 12px;
+            border-radius: 10px;
             white-space: nowrap;
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 900;
         }
 
@@ -286,60 +302,22 @@
             margin-top: 7px;
         }
 
-        @media (max-width: 650px) {
+        @media (max-width: 768px) {
             header {
                 padding: 14px 5%;
                 flex-wrap: wrap;
                 justify-content: center;
             }
 
-            .logo {
-                font-size: 23px;
-            }
-
             nav {
                 width: 100%;
                 justify-content: center;
-                gap: 20px;
-            }
-
-            nav a {
-                font-size: 13px;
-            }
-
-            .hero {
-                padding: 55px 20px 60px;
-            }
-
-            .hero p {
-                font-size: 15px;
-            }
-
-            .menu-section {
-                padding: 45px 15px;
-            }
-
-            .section-heading h2 {
-                font-size: 28px;
+                gap: 15px;
             }
 
             .menu-grid {
                 grid-template-columns: 1fr;
                 gap: 12px;
-            }
-
-            .menu-item {
-                padding: 18px;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            html {
-                scroll-behavior: auto;
-            }
-
-            *, *::before, *::after {
-                transition: none !important;
             }
         }
     </style>
@@ -352,6 +330,7 @@
 
         <nav>
             <a href="#anasayfa">Ana Sayfa</a>
+            <a href="#special">Özel Lezzetler</a>
             <a href="#menu">Menümüz</a>
             <a href="#icecekler">İçecekler</a>
         </nav>
@@ -388,102 +367,188 @@
                 >
             </div>
 
+            <!-- SPECIAL KATEGORİSİ -->
+            <div class="menu-category" id="special">
+                <h3 class="category-title">👑 Özel Lezzetler (Special)</h3>
+
+                <div class="menu-grid">
+                    <article class="menu-item" data-name="ödüllü et tantuni special">
+                        <img src="asd.jpeg" alt="Ödüllü Et Tantuni" class="item-img">
+                        <div class="item-details">
+                            <div class="item-info">
+                                <h3>Ödüllü Et Tantuni (50gr)</h3>
+                                <p>Şefin özel sunumuyla ödüllü lezzet</p>
+                            </div>
+                            <div class="price">260 TL</div>
+                        </div>
+                    </article>
+
+                    <article class="menu-item" data-name="yoğurtlu special tantuni">
+                        <img src="as.jpg" alt="Yoğurtlu Special Tantuni" class="item-img">
+                        <div class="item-details">
+                            <div class="item-info">
+                                <h3>Yoğurtlu Special Tantuni (50gr)</h3>
+                                <p>Bol yoğurt ve özel soslu enfes tat[cite: 2]</p>
+                            </div>
+                            <div class="price">290 TL</div>
+                        </div>
+                    </article>
+
+                    <article class="menu-item" data-name="sarma et tantuni special">
+                        <img src="sa.jpeg" alt="Sarma Et Tantuni" class="item-img">
+                        <div class="item-details">
+                            <div class="item-info">
+                                <h3>Sarma Et Tantuni (50gr)</h3>
+                                <p>Özel sarım kesim sunum[cite: 3]</p>
+                            </div>
+                            <div class="price">280 TL</div>
+                        </div>
+                    </article>
+
+                    <article class="menu-item" data-name="jumbo ekmek arasi tantuni">
+                        <img src="WhatsApp Image 2026-10-14 at 20.45.29.jpeg" alt="Jumbo Ekmek Arası" class="item-img">
+                        <div class="item-details">
+                            <div class="item-info">
+                                <h3>Jumbo Ekmek Arası Tantuni (50gr)</h3>
+                                <p>Doyurucu büyük somun ekmekle[cite: 5]</p>
+                            </div>
+                            <div class="price">270 TL</div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- TANTUNİLER KATEGORİSİ -->
             <div class="menu-category">
                 <h3 class="category-title">🌯 Tantuniler</h3>
 
                 <div class="menu-grid">
                     <article class="menu-item" data-name="et tantuni">
-                        <div class="item-info">
-                            <h3>Et Tantuni</h3>
-                            <p>Klasik tantuni lezzeti</p>
+                        <img src="sadda.jpg" alt="Et Tantuni" class="item-img">
+                        <div class="item-details">
+                            <div class="item-info">
+                                <h3>Et Tantuni (50gr)</h3>
+                                <p>Klasik tantuni lezzeti[cite: 4]</p>
+                            </div>
+                            <div class="price">220 TL</div>
                         </div>
-                        <div class="price">220 TL</div>
                     </article>
 
                     <article class="menu-item" data-name="biftek tantuni">
-                        <div class="item-info">
-                            <h3>Biftek Tantuni</h3>
-                            <p>Özel biftek lezzeti</p>
+                        <img src="asd.jpeg" alt="Biftek Tantuni" class="item-img">
+                        <div class="item-details">
+                            <div class="item-info">
+                                <h3>Biftek Tantuni (50gr)</h3>
+                                <p>Özel biftek lezzeti[cite: 1]</p>
+                            </div>
+                            <div class="price">240 TL</div>
                         </div>
-                        <div class="price">240 TL</div>
                     </article>
 
                     <article class="menu-item" data-name="tavuk tantuni">
-                        <div class="item-info">
-                            <h3>Tavuk Tantuni</h3>
-                            <p>Hafif ve lezzetli</p>
+                        <img src="sadda.jpg" alt="Tavuk Tantuni" class="item-img">
+                        <div class="item-details">
+                            <div class="item-info">
+                                <h3>Tavuk Tantuni (50gr)</h3>
+                                <p>Hafif ve lezzetli[cite: 4]</p>
+                            </div>
+                            <div class="price">150 TL</div>
                         </div>
-                        <div class="price">150 TL</div>
                     </article>
 
                     <article class="menu-item" data-name="yoğurtlu et tantuni">
-                        <div class="item-info">
-                            <h3>Yoğurtlu Et Tantuni</h3>
-                            <p>Yoğurtla eşsiz uyum</p>
+                        <img src="as.jpg" alt="Yoğurtlu Et Tantuni" class="item-img">
+                        <div class="item-details">
+                            <div class="item-info">
+                                <h3>Yoğurtlu Et Tantuni (50gr)</h3>
+                                <p>Yoğurtla eşsiz uyum[cite: 2]</p>
+                            </div>
+                            <div class="price">250 TL</div>
                         </div>
-                        <div class="price">250 TL</div>
                     </article>
 
                     <article class="menu-item" data-name="yoğurtlu biftek tantuni">
-                        <div class="item-info">
-                            <h3>Yoğurtlu Biftek Tantuni</h3>
-                            <p>Biftek ve yoğurt lezzeti</p>
+                        <img src="as.jpg" alt="Yoğurtlu Biftek Tantuni" class="item-img">
+                        <div class="item-details">
+                            <div class="item-info">
+                                <h3>Yoğurtlu Biftek Tantuni (50gr)</h3>
+                                <p>Biftek ve yoğurt lezzeti[cite: 2]</p>
+                            </div>
+                            <div class="price">270 TL</div>
                         </div>
-                        <div class="price">270 TL</div>
                     </article>
 
                     <article class="menu-item" data-name="yoğurtlu tavuk tantuni">
-                        <div class="item-info">
-                            <h3>Yoğurtlu Tavuk Tantuni</h3>
-                            <p>Yoğurtlu tavuk keyfi</p>
+                        <img src="as.jpg" alt="Yoğurtlu Tavuk Tantuni" class="item-img">
+                        <div class="item-details">
+                            <div class="item-info">
+                                <h3>Yoğurtlu Tavuk Tantuni (50gr)</h3>
+                                <p>Yoğurtlu tavuk keyfi[cite: 2]</p>
+                            </div>
+                            <div class="price">180 TL</div>
                         </div>
-                        <div class="price">180 TL</div>
                     </article>
                 </div>
             </div>
 
+            <!-- İÇECEKLER KATEGORİSİ -->
             <div class="menu-category" id="icecekler">
                 <h3 class="category-title">🥤 İçecekler</h3>
 
                 <div class="menu-grid">
                     <article class="menu-item" data-name="ayran yörük">
-                        <div class="item-info">
-                            <h3>Ayran (Yörük)</h3>
-                            <p>Serinleten klasik lezzet</p>
+                        <img src="sadda.jpg" alt="Ayran" class="item-img">
+                        <div class="item-details">
+                            <div class="item-info">
+                                <h3>Ayran (Yörük)</h3>
+                                <p>Serinleten klasik lezzet[cite: 4]</p>
+                            </div>
+                            <div class="price">30 TL</div>
                         </div>
-                        <div class="price">30 TL</div>
                     </article>
 
                     <article class="menu-item" data-name="ayran eker">
-                        <div class="item-info">
-                            <h3>Ayran (Eker)</h3>
-                            <p>Soğuk ayran keyfi</p>
+                        <img src="sadda.jpg" alt="Ayran Eker" class="item-img">
+                        <div class="item-details">
+                            <div class="item-info">
+                                <h3>Ayran (Eker)</h3>
+                                <p>Soğuk ayran keyfi[cite: 4]</p>
+                            </div>
+                            <div class="price">40 TL</div>
                         </div>
-                        <div class="price">40 TL</div>
                     </article>
 
                     <article class="menu-item" data-name="şişe kola">
-                        <div class="item-info">
-                            <h3>Şişe Kola</h3>
-                            <p>Soğuk içecek</p>
+                        <img src="sadda.jpg" alt="Şişe Kola" class="item-img">
+                        <div class="item-details">
+                            <div class="item-info">
+                                <h3>Şişe Kola</h3>
+                                <p>Soğuk içecek[cite: 4]</p>
+                            </div>
+                            <div class="price">60 TL</div>
                         </div>
-                        <div class="price">60 TL</div>
                     </article>
 
                     <article class="menu-item" data-name="kutu kola">
-                        <div class="item-info">
-                            <h3>Kutu Kola</h3>
-                            <p>Serinletici mola</p>
+                        <img src="sadda.jpg" alt="Kutu Kola" class="item-img">
+                        <div class="item-details">
+                            <div class="item-info">
+                                <h3>Kutu Kola</h3>
+                                <p>Serinletici mola[cite: 4]</p>
+                            </div>
+                            <div class="price">70 TL</div>
                         </div>
-                        <div class="price">70 TL</div>
                     </article>
 
                     <article class="menu-item" data-name="şalgam">
-                        <div class="item-info">
-                            <h3>Şalgam</h3>
-                            <p>Tantuninin vazgeçilmezi</p>
+                        <img src="sadda.jpg" alt="Şalgam" class="item-img">
+                        <div class="item-details">
+                            <div class="item-info">
+                                <h3>Şalgam</h3>
+                                <p>Tantuninin vazgeçilmezi[cite: 4]</p>
+                            </div>
+                            <div class="price">50 TL</div>
                         </div>
-                        <div class="price">50 TL</div>
                     </article>
                 </div>
             </div>
@@ -506,46 +571,31 @@
     </footer>
 
     <script>
-        // Menüde ürün arama
         const searchInput = document.getElementById("menuSearch");
         const menuItems = document.querySelectorAll(".menu-item");
         const categories = document.querySelectorAll(".menu-category");
         const noResults = document.getElementById("noResults");
 
         searchInput.addEventListener("input", function () {
-            const query = this.value
-                .toLocaleLowerCase("tr-TR")
-                .trim();
-
+            const query = this.value.toLocaleLowerCase("tr-TR").trim();
             let visibleCount = 0;
 
             menuItems.forEach(function (item) {
-                const name = item.dataset.name
-                    .toLocaleLowerCase("tr-TR");
-
+                const name = item.dataset.name.toLocaleLowerCase("tr-TR");
                 const visible = name.includes(query);
-
                 item.style.display = visible ? "flex" : "none";
-
                 if (visible) visibleCount++;
             });
 
             categories.forEach(function (category) {
-                const visibleItems = category.querySelectorAll(
-                    '.menu-item:not([style*="display: none"])'
-                );
-
-                category.style.display =
-                    visibleItems.length > 0 ? "block" : "none";
+                const visibleItems = category.querySelectorAll('.menu-item:not([style*="display: none"])');
+                category.style.display = visibleItems.length > 0 ? "block" : "none";
             });
 
-            noResults.style.display =
-                visibleCount === 0 ? "block" : "none";
+            noResults.style.display = visibleCount === 0 ? "block" : "none";
         });
 
-        // Güncel yıl
-        document.getElementById("year").textContent =
-            new Date().getFullYear();
+        document.getElementById("year").textContent = new Date().getFullYear();
     </script>
 
 </body>
